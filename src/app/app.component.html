@@ -1,336 +1,977 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<style>
-  :host {
-    --bright-blue: oklch(51.01% 0.274 263.83);
-    --electric-violet: oklch(53.18% 0.28 296.97);
-    --french-violet: oklch(47.66% 0.246 305.88);
-    --vivid-pink: oklch(69.02% 0.277 332.77);
-    --hot-red: oklch(61.42% 0.238 15.34);
-    --orange-red: oklch(63.32% 0.24 31.68);
-
-    --gray-900: oklch(19.37% 0.006 300.98);
-    --gray-700: oklch(36.98% 0.014 302.71);
-    --gray-400: oklch(70.9% 0.015 304.04);
-
-    --red-to-pink-to-purple-vertical-gradient: linear-gradient(
-      180deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --red-to-pink-to-purple-horizontal-gradient: linear-gradient(
-      90deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --pill-accent: var(--bright-blue);
-
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  h1 {
-    font-size: 3.125rem;
-    color: var(--gray-900);
-    font-weight: 500;
-    line-height: 100%;
-    letter-spacing: -0.125rem;
-    margin: 0;
-    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-  }
-
-  p {
-    margin: 0;
-    color: var(--gray-700);
-  }
-
-  main {
-    width: 100%;
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    box-sizing: inherit;
-    position: relative;
-  }
-
-  .angular-logo {
-    max-width: 9.2rem;
-  }
-
-  .content {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 700px;
-    margin-bottom: 3rem;
-  }
-
-  .content h1 {
-    margin-top: 1.75rem;
-  }
-
-  .content p {
-    margin-top: 1.5rem;
-  }
-
-  .divider {
-    width: 1px;
-    background: var(--red-to-pink-to-purple-vertical-gradient);
-    margin-inline: 0.5rem;
-  }
-
-  .pill-group {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-  }
-
-  .pill {
-    display: flex;
-    align-items: center;
-    --pill-accent: var(--bright-blue);
-    background: color-mix(in srgb, var(--pill-accent) 5%, transparent);
-    color: var(--pill-accent);
-    padding-inline: 0.75rem;
-    padding-block: 0.375rem;
-    border-radius: 2.75rem;
-    border: 0;
-    transition: background 0.3s ease;
-    font-family: var(--inter-font);
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.4rem;
-    letter-spacing: -0.00875rem;
-    text-decoration: none;
-  }
-
-  .pill:hover {
-    background: color-mix(in srgb, var(--pill-accent) 15%, transparent);
-  }
-
-  .pill-group .pill:nth-child(6n + 1) {
-    --pill-accent: var(--bright-blue);
-  }
-  .pill-group .pill:nth-child(6n + 2) {
-    --pill-accent: var(--french-violet);
-  }
-  .pill-group .pill:nth-child(6n + 3),
-  .pill-group .pill:nth-child(6n + 4),
-  .pill-group .pill:nth-child(6n + 5) {
-    --pill-accent: var(--hot-red);
-  }
-
-  .pill-group svg {
-    margin-inline-start: 0.25rem;
-  }
-
-  .social-links {
-    display: flex;
-    align-items: center;
-    gap: 0.73rem;
-    margin-top: 1.5rem;
-  }
-
-  .social-links path {
-    transition: fill 0.3s ease;
-    fill: var(--gray-400);
-  }
-
-  .social-links a:hover svg path {
-    fill: var(--gray-900);
-  }
-
-  @media screen and (max-width: 650px) {
-    .content {
-      flex-direction: column;
-      width: max-content;
-    }
-
-    .divider {
-      height: 1px;
-      width: 100%;
-      background: var(--red-to-pink-to-purple-horizontal-gradient);
-      margin-block: 1.5rem;
-    }
-  }
-</style>
-
-<main class="main">
-  <div class="content">
-    <div class="left-side">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 982 239"
-        fill="none"
-        class="angular-logo"
-      >
-        <g clip-path="url(#a)">
-          <path
-            fill="url(#b)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-          <path
-            fill="url(#c)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-        </g>
-        <defs>
-          <radialGradient
-            id="c"
-            cx="0"
-            cy="0"
-            r="1"
-            gradientTransform="rotate(118.122 171.182 60.81) scale(205.794)"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#FF41F8" />
-            <stop offset=".707" stop-color="#FF41F8" stop-opacity=".5" />
-            <stop offset="1" stop-color="#FF41F8" stop-opacity="0" />
-          </radialGradient>
-          <linearGradient
-            id="b"
-            x1="0"
-            x2="982"
-            y1="192"
-            y2="192"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#F0060B" />
-            <stop offset="0" stop-color="#F0070C" />
-            <stop offset=".526" stop-color="#CC26D5" />
-            <stop offset="1" stop-color="#7702FF" />
-          </linearGradient>
-          <clipPath id="a"><path fill="#fff" d="M0 0h982v239H0z" /></clipPath>
-        </defs>
-      </svg>
-      <h1>Hello, {{ title }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
-   </div>
-    <div class="divider" role="separator" aria-label="Divider"></div>
-    <div class="right-side">
-      <div class="pill-group">
-        @for (item of [
-          { title: 'Explore the Docs', link: 'https://angular.dev' },
-          { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },
-          { title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },
-          { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
-          { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
-        ]; track item.title) {
-          <a
-            class="pill"
-            href="{{ item.link }}"
-            target="_blank"
-            rel="noopener"
-          >
-            <span>{{ item.title }}</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="14"
-              viewBox="0 -960 960 960"
-              width="14"
-              fill="currentColor"
-            >
-              <path
-                d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"
-              />
-            </svg>
+<div class="content-wrapper">
+  <header class="wrapper bg-soft-primary">
+    <nav class="navbar navbar-expand-lg classic transparent position-absolute navbar-dark">
+      <div class="container flex-lg-row flex-nowrap align-items-center">
+        <div class="navbar-brand w-100">
+          <a href="./index.html">
+            <img class="logo-dark" src="./assets/img/logo-purple.png" srcset="./assets/img/logo-purple@2x.png 2x"
+              alt="" />
+            <img class="logo-light" src="./assets/img/logo-light.png" srcset="./assets/img/logo-light@2x.png 2x"
+              alt="" />
           </a>
-        }
+        </div>
+        <div class="navbar-collapse offcanvas-nav">
+          <div class="offcanvas-header d-lg-none d-xl-none">
+            <a href="./index.html"><img src="./assets/img/logo-light.png" srcset="./assets/img/logo-light@2x.png 2x"
+                alt="" /></a>
+            <button type="button" class="btn-close btn-close-white offcanvas-close offcanvas-nav-close"
+              aria-label="Close"></button>
+          </div>
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="#!">WHAT WE DO?</a>
+
+              <!--/.dropdown-menu -->
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#!">CHOOSE US?</a>
+
+            </li>
+            <li class="nav-item "><a class="nav-link " href="#!">SOLUTIONS</a>
+
+            </li>
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#!">CASE STUDIES</a>
+              <ul class="dropdown-menu">
+                <li class="nav-item"><a class="dropdown-item" href="./blog.html">CASE STUDIES 1</a></li>
+                <li class="nav-item"><a class="dropdown-item" href="./blog2.html">CASE STUDIES 2</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#!">WHO ARE WE?</a>
+
+              <!--/.dropdown-menu -->
+            </li>
+            <li class="nav-item"><a class="nav-link" href="./docs/index.html">WHO ARE WE?</a>
+
+              <!--/.dropdown-menu -->
+            </li>
+          </ul>
+          <!-- /.navbar-nav -->
+        </div>
+        <!-- /.navbar-collapse -->
+        <div class="navbar-other ms-lg-4">
+          <ul class="navbar-nav flex-row align-items-center ms-auto" data-sm-skip="true">
+            <li class="nav-item d-none d-md-block">
+              <a href="#" class="btn btn-sm btn-white rounded-pill">Free Trial</a>
+            </li>
+            <li class="nav-item d-lg-none">
+              <div class="navbar-hamburger"><button class="hamburger animate plain"
+                  data-toggle="offcanvas-nav"><span></span></button></div>
+            </li>
+          </ul>
+          <!-- /.navbar-nav -->
+        </div>
+        <!-- /.navbar-other -->
       </div>
-      <div class="social-links">
-        <a
-          href="https://github.com/angular/angular"
-          aria-label="Github"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="25"
-            height="24"
-            viewBox="0 0 25 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Github"
-          >
-            <path
-              d="M12.3047 0C5.50634 0 0 5.50942 0 12.3047C0 17.7423 3.52529 22.3535 8.41332 23.9787C9.02856 24.0946 9.25414 23.7142 9.25414 23.3871C9.25414 23.0949 9.24389 22.3207 9.23876 21.2953C5.81601 22.0377 5.09414 19.6444 5.09414 19.6444C4.53427 18.2243 3.72524 17.8449 3.72524 17.8449C2.61064 17.082 3.81137 17.0973 3.81137 17.0973C5.04697 17.1835 5.69604 18.3647 5.69604 18.3647C6.79321 20.2463 8.57636 19.7029 9.27978 19.3881C9.39052 18.5924 9.70736 18.0499 10.0591 17.7423C7.32641 17.4347 4.45429 16.3765 4.45429 11.6618C4.45429 10.3185 4.9311 9.22133 5.72065 8.36C5.58222 8.04931 5.16694 6.79833 5.82831 5.10337C5.82831 5.10337 6.85883 4.77319 9.2121 6.36459C10.1965 6.09082 11.2424 5.95546 12.2883 5.94931C13.3342 5.95546 14.3801 6.09082 15.3644 6.36459C17.7023 4.77319 18.7328 5.10337 18.7328 5.10337C19.3942 6.79833 18.9789 8.04931 18.8559 8.36C19.6403 9.22133 20.1171 10.3185 20.1171 11.6618C20.1171 16.3888 17.2409 17.4296 14.5031 17.7321C14.9338 18.1012 15.3337 18.8559 15.3337 20.0084C15.3337 21.6552 15.3183 22.978 15.3183 23.3779C15.3183 23.7009 15.5336 24.0854 16.1642 23.9623C21.0871 22.3484 24.6094 17.7341 24.6094 12.3047C24.6094 5.50942 19.0999 0 12.3047 0Z"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://twitter.com/angular"
-          aria-label="Twitter"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="25"
-            height="20"
-            viewBox="0 0 25 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Twitter"
-          >
-            <path
-              d="M8.04524 20C17.3335 20 22.4138 12.3047 22.4138 5.63144C22.4138 5.41287 22.4138 5.19529 22.399 4.97869C23.3874 4.26381 24.2405 3.37867 24.9185 2.3647C23.9969 2.77329 23.0192 3.04112 22.018 3.15923C23.0723 2.52818 23.8613 1.53552 24.2382 0.366057C23.2469 0.954335 22.1624 1.36889 21.0315 1.59182C20.2701 0.782212 19.2631 0.246107 18.1663 0.0664704C17.0695 -0.113166 15.9441 0.0736804 14.9642 0.598096C13.9843 1.12251 13.2046 1.95526 12.7457 2.96748C12.2868 3.9797 12.1742 5.11495 12.4255 6.19756C10.4178 6.09685 8.45366 5.57507 6.66064 4.66609C4.86763 3.75712 3.28579 2.48127 2.01781 0.921344C1.37203 2.03306 1.17424 3.34911 1.46472 4.60154C1.75519 5.85397 2.51208 6.9486 3.58128 7.66257C2.77759 7.63903 1.9914 7.42221 1.28924 7.03049V7.09449C1.28956 8.26041 1.69316 9.39034 2.4316 10.2926C3.17003 11.1949 4.19783 11.8139 5.34067 12.0448C4.59721 12.2476 3.81715 12.2772 3.06045 12.1315C3.38327 13.1348 4.01156 14.0122 4.85746 14.641C5.70337 15.2698 6.72461 15.6185 7.77842 15.6384C6.73139 16.4614 5.53237 17.0699 4.24995 17.4291C2.96753 17.7882 1.62687 17.891 0.304688 17.7316C2.61411 19.2136 5.30121 19.9997 8.04524 19.9961"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://www.youtube.com/channel/UCbn1OgGei-DV7aSRo_HaAiw"
-          aria-label="Youtube"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="29"
-            height="20"
-            viewBox="0 0 29 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Youtube"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M27.4896 1.52422C27.9301 1.96749 28.2463 2.51866 28.4068 3.12258C29.0004 5.35161 29.0004 10 29.0004 10C29.0004 10 29.0004 14.6484 28.4068 16.8774C28.2463 17.4813 27.9301 18.0325 27.4896 18.4758C27.0492 18.9191 26.5 19.2389 25.8972 19.4032C23.6778 20 14.8068 20 14.8068 20C14.8068 20 5.93586 20 3.71651 19.4032C3.11363 19.2389 2.56449 18.9191 2.12405 18.4758C1.68361 18.0325 1.36732 17.4813 1.20683 16.8774C0.613281 14.6484 0.613281 10 0.613281 10C0.613281 10 0.613281 5.35161 1.20683 3.12258C1.36732 2.51866 1.68361 1.96749 2.12405 1.52422C2.56449 1.08095 3.11363 0.76113 3.71651 0.596774C5.93586 0 14.8068 0 14.8068 0C14.8068 0 23.6778 0 25.8972 0.596774C26.5 0.76113 27.0492 1.08095 27.4896 1.52422ZM19.3229 10L11.9036 5.77905V14.221L19.3229 10Z"
-            />
-          </svg>
-        </a>
+      <!-- /.container -->
+    </nav>
+    <!-- /.navbar -->
+  </header>
+  <!-- /header -->
+  <section class="wrapper image-wrapper bg-image bg-overlay bg-overlay-400 bg-content text-white"
+    data-image-src="./assets/img/photos/bg4.jpg">
+    <div class="container pt-18 pb-16" style="z-index: 5; position:relative">
+      <div class="row gx-0 gy-12 align-items-center">
+        <div class="col-md-10 offset-md-1 offset-lg-0 col-lg-6 content text-center text-lg-start"
+          data-cues="slideInDown" data-group="page-title" data-delay="600">
+          <h1 class="display-2 mb-5 text-white">Crafting project specific solutions with expertise.</h1>
+          <p class="lead fs-lg lh-sm mb-7 pe-xl-10">We’re a creative company that focuses on establishing long-term
+            relationships with customers.</p>
+          <div class="d-flex justify-content-center justify-content-lg-start" data-cues="slideInDown"
+            data-group="page-title-buttons" data-delay="900">
+            <span><a href="#" class="btn btn-lg btn-white rounded-pill me-2">Explore Now</a></span>
+            <span><a href="#" class="btn btn-lg btn-outline-white rounded-pill">Contact Us</a></span>
+          </div>
+        </div>
+        <!--/column -->
+        <div class="col-lg-5 offset-lg-1">
+          <div class="basic-slider owl-carousel dots-over shadow-lg" data-nav="true" data-margin="5">
+            <div class="item"><img src="./assets/img/photos/about21.jpg" srcset="./assets/img/photos/about21@2x.jpg 2x"
+                class="rounded" alt="" /></div>
+            <div class="item"><a href="./assets/media/movie.mp4"
+                class="btn btn-circle btn-white btn-play ripple mx-auto mb-5 position-absolute"
+                style="top:50%; left: 50%; transform: translate(-50%,-50%); z-index:3;" data-glightbox
+                data-gallery="hero"><i class="icn-caret-right"></i></a><img src="./assets/img/photos/about22.jpg"
+                srcset="./assets/img/photos/about22@2x.jpg 2x" class="rounded" alt="" /></div>
+            <div class="item"><img src="./assets/img/photos/about23.jpg" srcset="./assets/img/photos/about23@2x.jpg 2x"
+                class="rounded" alt="" /></div>
+          </div>
+          <!-- /.basic-slider -->
+        </div>
+        <!-- /column -->
       </div>
+      <!-- /.row -->
     </div>
+    <!-- /.container -->
+  </section>
+  <!-- /section -->
+  <section class="wrapper bg-light">
+    <div class="container py-14 py-md-17">
+      <div class="row text-center">
+        <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+          <h2 class="fs-15 text-uppercase text-primary mb-3">What We Do?</h2>
+          <h3 class="display-4 mb-10 px-xl-10">The service we offer is specifically designed to meet your needs.</h3>
+        </div>
+        <!-- /column -->
+      </div>
+      <!-- /.row -->
+      <div class="position-relative mb-14 mb-md-17">
+        <div class="shape rounded-circle bg-soft-primary rellax w-16 h-16" data-rellax-speed="1"
+          style="bottom: -0.5rem; right: -2.5rem; z-index: 0;"></div>
+        <div class="shape bg-dot primary rellax w-16 h-17" data-rellax-speed="1"
+          style="top: -0.5rem; left: -2.5rem; z-index: 0;"></div>
+        <div class="row gx-md-5 gy-5 text-center">
+          <div class="col-md-6 col-xl-3">
+            <div class="card">
+              <div class="card-body">
+                <div class="icon btn btn-circle btn-lg btn-primary disabled mb-3"> <i class="uil uil-phone-volume"></i>
+                </div>
+                <h4>24/7 Support</h4>
+                <p class="mb-2">Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget
+                  metus cras justo.</p>
+                <a href="#" class="more hover link-primary">Learn More</a>
+              </div>
+              <!--/.card-body -->
+            </div>
+            <!--/.card -->
+          </div>
+          <!--/column -->
+          <div class="col-md-6 col-xl-3">
+            <div class="card">
+              <div class="card-body">
+                <div class="icon btn btn-circle btn-lg btn-primary disabled mb-3"> <i
+                    class="uil uil-shield-exclamation"></i> </div>
+                <h4>Secure Payments</h4>
+                <p class="mb-2">Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget
+                  metus cras justo.</p>
+                <a href="#" class="more hover link-primary">Learn More</a>
+              </div>
+              <!--/.card-body -->
+            </div>
+            <!--/.card -->
+          </div>
+          <!--/column -->
+          <div class="col-md-6 col-xl-3">
+            <div class="card">
+              <div class="card-body">
+                <div class="icon btn btn-circle btn-lg btn-primary disabled mb-3"> <i class="uil uil-laptop-cloud"></i>
+                </div>
+                <h4>Daily Updates</h4>
+                <p class="mb-2">Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget
+                  metus cras justo.</p>
+                <a href="#" class="more hover link-primary">Learn More</a>
+              </div>
+              <!--/.card-body -->
+            </div>
+            <!--/.card -->
+          </div>
+          <!--/column -->
+          <div class="col-md-6 col-xl-3">
+            <div class="card">
+              <div class="card-body">
+                <div class="icon btn btn-circle btn-lg btn-primary disabled mb-3"> <i class="uil uil-chart-line"></i>
+                </div>
+                <h4>Market Research</h4>
+                <p class="mb-2">Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget
+                  metus cras justo.</p>
+                <a href="#" class="more hover link-primary">Learn More</a>
+              </div>
+              <!--/.card-body -->
+            </div>
+            <!--/.card -->
+          </div>
+          <!--/column -->
+        </div>
+        <!--/.row -->
+      </div>
+      <!-- /.position-relative -->
+      <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center mb-14 mb-md-17">
+        <div class="col-lg-7">
+          <figure><img class="w-auto" src="./assets/img/illustrations/i11.png"
+              srcset="./assets/img/illustrations/i11@2x.png 2x" alt="" /></figure>
+        </div>
+        <!--/column -->
+        <div class="col-lg-5">
+          <h2 class="fs-15 text-uppercase text-primary mb-3">Why Choose Us?</h2>
+          <h3 class="display-4 mb-7">We bring solutions to make life easier for our clients.</h3>
+          <div class="accordion accordion-wrapper" id="accordionExample">
+            <div class="card plain accordion-item">
+              <div class="card-header" id="headingOne">
+                <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                  aria-expanded="true" aria-controls="collapseOne"> Professional Design </button>
+              </div>
+              <!--/.card-header -->
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample">
+                <div class="card-body">
+                  <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo
+                    sit amet risus. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna,
+                    vel.</p>
+                </div>
+                <!--/.card-body -->
+              </div>
+              <!--/.accordion-collapse -->
+            </div>
+            <!--/.accordion-item -->
+            <div class="card plain accordion-item">
+              <div class="card-header" id="headingTwo">
+                <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                  aria-controls="collapseTwo"> Top-Notch Support </button>
+              </div>
+              <!--/.card-header -->
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                data-bs-parent="#accordionExample">
+                <div class="card-body">
+                  <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo
+                    sit amet risus. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna,
+                    vel.</p>
+                </div>
+                <!--/.card-body -->
+              </div>
+              <!--/.accordion-collapse -->
+            </div>
+            <!--/.accordion-item -->
+            <div class="card plain accordion-item">
+              <div class="card-header" id="headingThree">
+                <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                  aria-expanded="false" aria-controls="collapseThree"> Header and Slider Options </button>
+              </div>
+              <!--/.card-header -->
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                data-bs-parent="#accordionExample">
+                <div class="card-body">
+                  <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo
+                    sit amet risus. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna,
+                    vel.</p>
+                </div>
+                <!--/.card-body -->
+              </div>
+              <!--/.accordion-collapse -->
+            </div>
+            <!--/.accordion-item -->
+          </div>
+          <!--/.accordion -->
+        </div>
+        <!--/column -->
+      </div>
+      <!--/.row -->
+      <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center mb-md-15">
+        <div class="col-lg-7 order-lg-2">
+          <figure><img class="w-auto" src="./assets/img/illustrations/i17.png"
+              srcset="./assets/img/illustrations/i17@2x.png 2x" alt="" /></figure>
+        </div>
+        <!--/column -->
+        <div class="col-lg-5">
+          <h2 class="fs-15 text-uppercase text-primary mb-3">Our Solutions</h2>
+          <h3 class="display-4 mb-5">We make your spending stress-free for you to have the perfect control.</h3>
+          <p class="mb-6">Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras
+            justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus.</p>
+          <div class="row gy-3">
+            <div class="col-xl-6">
+              <ul class="icon-list bullet-bg bullet-soft-primary mb-0">
+                <li><span><i class="uil uil-check"></i></span><span>Aenean quam ornare. Curabitur blandit.</span></li>
+                <li class="mt-3"><span><i class="uil uil-check"></i></span><span>Nullam quis risus eget urna mollis
+                    ornare.</span></li>
+              </ul>
+            </div>
+            <!--/column -->
+            <div class="col-xl-6">
+              <ul class="icon-list bullet-bg bullet-soft-primary mb-0">
+                <li><span><i class="uil uil-check"></i></span><span>Etiam porta euismod malesuada mollis.</span></li>
+                <li class="mt-3"><span><i class="uil uil-check"></i></span><span>Vivamus sagittis lacus vel augue
+                    rutrum.</span></li>
+              </ul>
+            </div>
+            <!--/column -->
+          </div>
+          <!--/.row -->
+        </div>
+        <!--/column -->
+      </div>
+      <!--/.row -->
+    </div>
+    <!-- /.container -->
+  </section>
+  <!-- /section -->
+  <section class="wrapper bg-gray">
+    <div class="container py-14 pt-md-0 pb-md-16">
+      <div class="row mt-md-n50p mb-14 mb-md-7">
+        <div class="col-xl-10 mx-auto">
+          <div class="card image-wrapper bg-full bg-image bg-overlay bg-overlay-400"
+            data-image-src="./assets/img/photos/bg2.jpg">
+            <div class="card-body p-9 p-xl-11">
+              <div class="row align-items-center counter-wrapper gy-8 text-center text-white">
+                <div class="col-6 col-lg-3">
+                  <h3 class="counter counter-lg text-white">7518</h3>
+                  <p>Completed Projects</p>
+                </div>
+                <!--/column -->
+                <div class="col-6 col-lg-3">
+                  <h3 class="counter counter-lg text-white">3472</h3>
+                  <p>Happy Customers</p>
+                </div>
+                <!--/column -->
+                <div class="col-6 col-lg-3">
+                  <h3 class="counter counter-lg text-white">2184</h3>
+                  <p>Expert Employees</p>
+                </div>
+                <!--/column -->
+                <div class="col-6 col-lg-3">
+                  <h3 class="counter counter-lg text-white">4523</h3>
+                  <p>Awards Won</p>
+                </div>
+                <!--/column -->
+              </div>
+              <!--/.row -->
+            </div>
+            <!--/.card-body -->
+          </div>
+          <!--/.card -->
+        </div>
+        <!-- /column -->
+      </div>
+      <!-- /.row -->
+      <div class="row text-center">
+        <div class="col-lg-9 col-xl-8 col-xxl-7 mx-auto">
+          <h2 class="fs-15 text-uppercase text-primary mb-3">Case Studies</h2>
+          <h3 class="display-4 mb-6">Check out some of our awesome projects with creative ideas and great design.</h3>
+        </div>
+        <!-- /column -->
+      </div>
+      <!-- /.row -->
+      <div class="position-relative">
+        <div class="shape bg-dot primary rellax w-17 h-20" data-rellax-speed="1" style="top: 0; left: -1.7rem;"></div>
+        <div class="carousel owl-carousel gap-small blog grid-view" data-margin="0" data-dots="true"
+          data-autoplay="false" data-autoplay-timeout="5000"
+          data-responsive='{"0":{"items": "1"}, "768":{"items": "2"}, "992":{"items": "2"}, "1200":{"items": "3"}}'>
+          <div class="item">
+            <div class="item-inner">
+              <article>
+                <div class="card">
+                  <figure class="card-img-top overlay overlay-1 hover-scale"><a href="#"> <img
+                        src="./assets/img/photos/b4.jpg" alt="" /></a>
+                    <figcaption>
+                      <h5 class="from-top mb-0">Read More</h5>
+                    </figcaption>
+                  </figure>
+                  <div class="card-body">
+                    <div class="post-header">
+                      <h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="./blog-post.html">Ligula
+                          tristique quis risus</a></h2>
+                    </div>
+                    <!-- /.post-header -->
+                    <div class="post-content">
+                      <p>Mauris convallis non ligula non interdum. Gravida vulputate convallis tempus vestibulum cras
+                        imperdiet nun eu dolor.</p>
+                    </div>
+                    <!-- /.post-content -->
+                  </div>
+                  <!--/.card-body -->
+                  <div class="card-footer">
+                    <ul class="post-meta d-flex mb-0">
+                      <li class="post-date"><i class="uil uil-calendar-alt"></i><span>14 Apr 2021</span></li>
+                      <li class="post-comments"><a href="#"><i class="uil uil-file-alt fs-15"></i>Coding</a></li>
+                    </ul>
+                    <!-- /.post-meta -->
+                  </div>
+                  <!-- /.card-footer -->
+                </div>
+                <!-- /.card -->
+              </article>
+              <!-- /article -->
+            </div>
+            <!-- /.item-inner -->
+          </div>
+          <!-- /.item -->
+          <div class="item">
+            <div class="item-inner">
+              <article>
+                <div class="card">
+                  <figure class="card-img-top overlay overlay-1 hover-scale"><a href="#"> <img
+                        src="./assets/img/photos/b5.jpg" alt="" /></a>
+                    <figcaption>
+                      <h5 class="from-top mb-0">Read More</h5>
+                    </figcaption>
+                  </figure>
+                  <div class="card-body">
+                    <div class="post-header">
+                      <h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="./blog-post.html">Nullam id dolor
+                          elit id nibh</a></h2>
+                    </div>
+                    <!-- /.post-header -->
+                    <div class="post-content">
+                      <p>Mauris convallis non ligula non interdum. Gravida vulputate convallis tempus vestibulum cras
+                        imperdiet nun eu dolor.</p>
+                    </div>
+                    <!-- /.post-content -->
+                  </div>
+                  <!--/.card-body -->
+                  <div class="card-footer">
+                    <ul class="post-meta d-flex mb-0">
+                      <li class="post-date"><i class="uil uil-calendar-alt"></i><span>29 Mar 2021</span></li>
+                      <li class="post-comments"><a href="#"><i class="uil uil-file-alt fs-15"></i>Workspace</a></li>
+                    </ul>
+                    <!-- /.post-meta -->
+                  </div>
+                  <!-- /.card-footer -->
+                </div>
+                <!-- /.card -->
+              </article>
+              <!-- /article -->
+            </div>
+            <!-- /.item-inner -->
+          </div>
+          <!-- /.item -->
+          <div class="item">
+            <div class="item-inner">
+              <article>
+                <div class="card">
+                  <figure class="card-img-top overlay overlay-1 hover-scale"><a href="#"> <img
+                        src="./assets/img/photos/b6.jpg" alt="" /></a>
+                    <figcaption>
+                      <h5 class="from-top mb-0">Read More</h5>
+                    </figcaption>
+                  </figure>
+                  <div class="card-body">
+                    <div class="post-header">
+                      <h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="./blog-post.html">Ultricies fusce
+                          porta elit</a></h2>
+                    </div>
+                    <!-- /.post-header -->
+                    <div class="post-content">
+                      <p>Mauris convallis non ligula non interdum. Gravida vulputate convallis tempus vestibulum cras
+                        imperdiet nun eu dolor.</p>
+                    </div>
+                    <!-- /.post-content -->
+                  </div>
+                  <!--/.card-body -->
+                  <div class="card-footer">
+                    <ul class="post-meta d-flex mb-0">
+                      <li class="post-date"><i class="uil uil-calendar-alt"></i><span>26 Feb 2021</span></li>
+                      <li class="post-comments"><a href="#"><i class="uil uil-file-alt fs-15"></i>Meeting</a></li>
+                    </ul>
+                    <!-- /.post-meta -->
+                  </div>
+                  <!-- /.card-footer -->
+                </div>
+                <!-- /.card -->
+              </article>
+              <!-- /article -->
+            </div>
+            <!-- /.item-inner -->
+          </div>
+          <!-- /.item -->
+          <div class="item">
+            <div class="item-inner">
+              <article>
+                <div class="card">
+                  <figure class="card-img-top overlay overlay-1 hover-scale"><a href="#"> <img
+                        src="./assets/img/photos/b7.jpg" alt="" /></a>
+                    <figcaption>
+                      <h5 class="from-top mb-0">Read More</h5>
+                    </figcaption>
+                  </figure>
+                  <div class="card-body">
+                    <div class="post-header">
+                      <h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="./blog-post.html">Morbi leo risus
+                          porta eget</a></h2>
+                    </div>
+                    <!-- /.post-header -->
+                    <div class="post-content">
+                      <p>Mauris convallis non ligula non interdum. Gravida vulputate convallis tempus vestibulum cras
+                        imperdiet nun eu dolor.</p>
+                    </div>
+                    <!-- /.post-content -->
+                  </div>
+                  <!--/.card-body -->
+                  <div class="card-footer">
+                    <ul class="post-meta d-flex mb-0">
+                      <li class="post-date"><i class="uil uil-calendar-alt"></i><span>7 Jan 2021</span></li>
+                      <li class="post-comments"><a href="#"><i class="uil uil-file-alt fs-15"></i>Business Tips</a>
+                      </li>
+                    </ul>
+                    <!-- /.post-meta -->
+                  </div>
+                  <!-- /.card-footer -->
+                </div>
+                <!-- /.card -->
+              </article>
+              <!-- /article -->
+            </div>
+            <!-- /.item-inner -->
+          </div>
+          <!-- /.item -->
+        </div>
+        <!-- /.owl-carousel -->
+      </div>
+      <!-- /.position-relative -->
+    </div>
+    <!-- /.container -->
+  </section>
+  <!-- /section -->
+  <section class="wrapper bg-light">
+    <div class="container py-14 py-md-17">
+      <div class="row gy-10 gy-sm-13 gx-lg-3 align-items-center mb-14 mb-md-18">
+        <div class="col-md-8 col-lg-6 position-relative">
+          <a href="./assets/media/movie.mp4"
+            class="btn btn-circle btn-primary btn-play ripple mx-auto mb-5 position-absolute"
+            style="top:50%; left: 50%; transform: translate(-50%,-50%); z-index:3;" data-glightbox
+            data-gallery="about"><i class="icn-caret-right"></i></a>
+          <div class="shape rounded bg-soft-primary rellax d-md-block" data-rellax-speed="0"
+            style="bottom: -1.8rem; right: -1.5rem; width: 85%; height: 90%; "></div>
+          <figure class="rounded"><img src="./assets/img/photos/about12.jpg"
+              srcset="./assets/img/photos/about12@2x.jpg 2x" alt=""></figure>
+        </div>
+        <!--/column -->
+        <div class="col-lg-5 offset-lg-1">
+          <h2 class="fs-15 text-uppercase text-primary mb-3">Who Are We?</h2>
+          <h3 class="display-4 mb-6">Company that believes in the power of creative strategy.</h3>
+          <p class="mb-6">Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras
+            justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque
+            nisl consectetur et.</p>
+          <div class="row gy-3 gx-xl-8">
+            <div class="col-xl-6">
+              <ul class="icon-list bullet-bg bullet-soft-primary mb-0">
+                <li><span><i class="uil uil-check"></i></span><span>Aenean eu leo quam ornare curabitur blandit
+                    tempus.</span></li>
+                <li class="mt-3"><span><i class="uil uil-check"></i></span><span>Nullam quis risus eget urna mollis
+                    ornare donec elit.</span></li>
+              </ul>
+            </div>
+            <!--/column -->
+            <div class="col-xl-6">
+              <ul class="icon-list bullet-bg bullet-soft-primary mb-0">
+                <li><span><i class="uil uil-check"></i></span><span>Etiam porta sem malesuada magna mollis
+                    euismod.</span></li>
+                <li class="mt-3"><span><i class="uil uil-check"></i></span><span>Fermentum massa vivamus faucibus amet
+                    euismod.</span></li>
+              </ul>
+            </div>
+            <!--/column -->
+          </div>
+          <!--/.row -->
+        </div>
+        <!--/column -->
+      </div>
+      <!--/.row -->
+      <div class="row mb-3">
+        <div class="col-md-10 col-lg-12 col-xl-10 col-xxl-9 mx-auto text-center">
+          <h2 class="fs-15 text-uppercase text-primary mb-3">Our Team</h2>
+          <h3 class="display-4 mb-7 px-lg-19 px-xl-18">Think unique and be innovative. Make a difference with Sandbox.
+          </h3>
+        </div>
+        <!--/column -->
+      </div>
+      <!--/.row -->
+      <div class="row grid-view gx-md-8 gx-xl-10 gy-8 gy-lg-0 mb-md-20">
+        <div class="col-md-6 col-lg-3">
+          <div class="position-relative">
+            <div class="shape rounded bg-soft-primary rellax d-md-block" data-rellax-speed="0"
+              style="bottom: -0.75rem; right: -0.75rem; width: 98%; height: 98%; z-index:0"></div>
+            <div class="card">
+              <figure class="card-img-top"><img class="img-fluid" src="./assets/img/avatars/t1.jpg"
+                  srcset="./assets/img/avatars/t1@2x.jpg 2x" alt="" /></figure>
+              <div class="card-body px-6 py-5">
+                <h4 class="mb-1">Coriss Ambady</h4>
+                <p class="mb-0">Financial Analyst</p>
+              </div>
+              <!--/.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /div -->
+        </div>
+        <!--/column -->
+        <div class="col-md-6 col-lg-3">
+          <div class="position-relative">
+            <div class="shape rounded bg-soft-primary rellax d-md-block" data-rellax-speed="0"
+              style="bottom: -0.75rem; right: -0.75rem; width: 98%; height: 98%; z-index:0"></div>
+            <div class="card">
+              <figure class="card-img-top"><img class="img-fluid" src="./assets/img/avatars/t2.jpg"
+                  srcset="./assets/img/avatars/t2@2x.jpg 2x" alt="" /></figure>
+              <div class="card-body px-6 py-5">
+                <h4 class="mb-1">Cory Zamora</h4>
+                <p class="mb-0">Marketing Specialist</p>
+              </div>
+              <!--/.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /div -->
+        </div>
+        <!--/column -->
+        <div class="col-md-6 col-lg-3">
+          <div class="position-relative">
+            <div class="shape rounded bg-soft-primary rellax d-md-block" data-rellax-speed="0"
+              style="bottom: -0.75rem; right: -0.75rem; width: 98%; height: 98%; z-index:0"></div>
+            <div class="card">
+              <figure class="card-img-top"><img class="img-fluid" src="./assets/img/avatars/t3.jpg"
+                  srcset="./assets/img/avatars/t3@2x.jpg 2x" alt="" /></figure>
+              <div class="card-body px-6 py-5">
+                <h4 class="mb-1">Nikolas Brooten</h4>
+                <p class="mb-0">Sales Manager</p>
+              </div>
+              <!--/.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /div -->
+        </div>
+        <!--/column -->
+        <div class="col-md-6 col-lg-3">
+          <div class="position-relative">
+            <div class="shape rounded bg-soft-primary rellax d-md-block" data-rellax-speed="0"
+              style="bottom: -0.75rem; right: -0.75rem; width: 98%; height: 98%; z-index:0"></div>
+            <div class="card">
+              <figure class="card-img-top"><img class="img-fluid" src="./assets/img/avatars/t4.jpg"
+                  srcset="./assets/img/avatars/t4@2x.jpg 2x" alt="" /></figure>
+              <div class="card-body px-6 py-5">
+                <h4 class="mb-1">Jackie Sanders</h4>
+                <p class="mb-0">Investment Planner</p>
+              </div>
+              <!--/.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /div -->
+        </div>
+        <!--/column -->
+      </div>
+      <!--/.row -->
+    </div>
+    <!-- /.container -->
+  </section>
+  <!-- /section -->
+  <section class="wrapper bg-gray">
+    <div class="container py-14 pt-md-0 pb-md-17">
+      <div class="row mt-md-n50p text-white text-center">
+        <div class="col-xl-10 mx-auto mb-14 mb-lg-n6">
+          <div class="card image-wrapper bg-full bg-image bg-overlay bg-overlay-400"
+            data-image-src="./assets/img/photos/bg2.jpg">
+            <div class="card-body p-9 p-xl-12">
+              <div class="row gx-0">
+                <div class="col-xxl-9 mx-auto">
+                  <div class="basic-slider owl-carousel dots-dark gap-small mb-0" data-margin="30">
+                    <div class="item">
+                      <span class="ratings five mb-3"></span>
+                      <blockquote class="border-0 fs-lg mb-2">
+                        <p>“Vivamus sagittis lacus augue laoreet rutrum faucibus auctor vestibulum ligula porta felis,
+                          euismod semper cras justo odio consectetur.”</p>
+                        <div class="blockquote-details justify-content-center text-center">
+                          <div class="info ps-0">
+                            <h5 class="mb-1 text-white">Coriss Ambady</h5>
+                            <p class="mb-0">Financial Analyst</p>
+                          </div>
+                        </div>
+                      </blockquote>
+                    </div>
+                    <!-- /.item -->
+                    <div class="item">
+                      <span class="ratings five mb-3"></span>
+                      <blockquote class="border-0 fs-lg mb-2">
+                        <p>“Vivamus sagittis lacus augue laoreet rutrum faucibus auctor vestibulum ligula porta felis,
+                          euismod semper cras justo odio consectetur.”</p>
+                        <div class="blockquote-details justify-content-center text-center">
+                          <div class="info ps-0">
+                            <h5 class="mb-1 text-white">Cory Zamora</h5>
+                            <p class="mb-0">Marketing Specialist</p>
+                          </div>
+                        </div>
+                      </blockquote>
+                    </div>
+                    <!-- /.item -->
+                    <div class="item">
+                      <span class="ratings five mb-3"></span>
+                      <blockquote class="border-0 fs-lg mb-2">
+                        <p>“Vivamus sagittis lacus augue laoreet rutrum faucibus auctor vestibulum ligula porta felis,
+                          euismod semper cras justo odio consectetur.”</p>
+                        <div class="blockquote-details justify-content-center text-center">
+                          <div class="info ps-0">
+                            <h5 class="mb-1 text-white">Nikolas Brooten</h5>
+                            <p class="mb-0">Sales Manager</p>
+                          </div>
+                        </div>
+                      </blockquote>
+                    </div>
+                    <!-- /.item -->
+                  </div>
+                  <!-- /.owl-carousel -->
+                </div>
+                <!-- /column -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!--/.card-body -->
+          </div>
+          <!--/.card -->
+        </div>
+        <!-- /column -->
+      </div>
+      <!-- /.row -->
+      <div class="row text-center">
+        <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+          <h2 class="fs-15 text-uppercase text-primary mb-3">Our Pricing</h2>
+          <h3 class="display-4 mb-10 px-xl-10">We offer great prices, premium products and quality service for your
+            business.</h3>
+        </div>
+        <!-- /column -->
+      </div>
+      <!-- /.row -->
+      <div class="row">
+        <div class="col-xl-11 mx-auto">
+          <div class="pricing-wrapper position-relative mb-10 mb-md-14">
+            <div class="shape bg-dot primary rellax w-16 h-18" data-rellax-speed="1" style="top: 2rem; right: -2.4rem;">
+            </div>
+            <div class="shape rounded-circle bg-line primary rellax w-18 h-18 d-none d-lg-block" data-rellax-speed="1"
+              style="bottom: 0.5rem; left: -2.5rem;"></div>
+            <div class="pricing-switcher-wrapper switcher">
+              <p class="mb-0 pe-3">Monthly</p>
+              <div class="pricing-switchers">
+                <div class="pricing-switcher pricing-switcher-active"></div>
+                <div class="pricing-switcher"></div>
+                <div class="switcher-button bg-primary"></div>
+              </div>
+              <p class="mb-0 ps-3">Yearly</p>
+            </div>
+            <div class="row gy-6 mt-3 mt-md-5">
+              <div class="col-md-6 col-lg-4">
+                <div class="pricing card">
+                  <div class="card-body">
+                    <div class="prices text-dark">
+                      <div class="price price-show"><span class="price-currency">$</span><span
+                          class="price-value">9</span> <span class="price-duration">month</span></div>
+                      <div class="price price-hide price-hidden"><span class="price-currency">$</span><span
+                          class="price-value">99</span> <span class="price-duration">year</span></div>
+                    </div>
+                    <!--/.prices -->
+                    <h4 class="card-title mt-2">Basic Plan</h4>
+                    <ul class="icon-list bullet-bg bullet-soft-primary mt-8 mb-9 text-start">
+                      <li><i class="uil uil-check"></i><span><strong>1</strong> Project </span></li>
+                      <li><i class="uil uil-check"></i><span><strong>100K</strong> API Access </span></li>
+                      <li><i class="uil uil-check"></i><span><strong>100MB</strong> Storage </span></li>
+                      <li><i class="uil uil-check"></i><span> Weekly <strong>Reports</strong> </span></li>
+                      <li><i class="uil uil-check"></i><span> 7/24 <strong>Support</strong></span></li>
+                    </ul>
+                    <a href="#" class="btn btn-primary rounded-pill">Choose Plan</a>
+                  </div>
+                  <!--/.card-body -->
+                </div>
+                <!--/.pricing -->
+              </div>
+              <!--/column -->
+              <div class="col-md-6 col-lg-4 popular">
+                <div class="pricing card">
+                  <div class="card-body">
+                    <div class="prices text-dark">
+                      <div class="price price-show"><span class="price-currency">$</span><span
+                          class="price-value">19</span> <span class="price-duration">month</span></div>
+                      <div class="price price-hide price-hidden"><span class="price-currency">$</span><span
+                          class="price-value">199</span> <span class="price-duration">year</span></div>
+                    </div>
+                    <!--/.prices -->
+                    <h4 class="card-title mt-2">Premium Plan</h4>
+                    <ul class="icon-list bullet-bg bullet-soft-primary mt-8 mb-9 text-start">
+                      <li><i class="uil uil-check"></i><span><strong>5</strong> Projects </span></li>
+                      <li><i class="uil uil-check"></i><span><strong>100K</strong> API Access </span></li>
+                      <li><i class="uil uil-check"></i><span><strong>200MB</strong> Storage </span></li>
+                      <li><i class="uil uil-check"></i><span> Weekly <strong>Reports</strong></span></li>
+                      <li><i class="uil uil-check"></i><span> 7/24 <strong>Support</strong></span></li>
+                    </ul>
+                    <a href="#" class="btn btn-primary rounded-pill">Choose Plan</a>
+                  </div>
+                  <!--/.card-body -->
+                </div>
+                <!--/.pricing -->
+              </div>
+              <!--/column -->
+              <div class="col-md-6 offset-md-3 col-lg-4 offset-lg-0">
+                <div class="pricing card">
+                  <div class="card-body">
+                    <div class="prices text-dark">
+                      <div class="price price-show"><span class="price-currency">$</span><span
+                          class="price-value">49</span> <span class="price-duration">month</span></div>
+                      <div class="price price-hide price-hidden"><span class="price-currency">$</span><span
+                          class="price-value">499</span> <span class="price-duration">year</span></div>
+                    </div>
+                    <!--/.prices -->
+                    <h4 class="card-title mt-2">Corporate Plan</h4>
+                    <ul class="icon-list bullet-bg bullet-soft-primary mt-8 mb-9 text-start">
+                      <li><i class="uil uil-check"></i><span><strong>20</strong> Projects </span></li>
+                      <li><i class="uil uil-check"></i><span><strong>300K</strong> API Access </span></li>
+                      <li><i class="uil uil-check"></i><span><strong>500MB</strong> Storage </span></li>
+                      <li><i class="uil uil-check"></i><span> Weekly <strong>Reports</strong></span></li>
+                      <li><i class="uil uil-check"></i><span> 7/24 <strong>Support</strong></span></li>
+                    </ul>
+                    <a href="#" class="btn btn-primary rounded-pill">Choose Plan</a>
+                  </div>
+                  <!--/.card-body -->
+                </div>
+                <!--/.pricing -->
+              </div>
+              <!--/column -->
+            </div>
+            <!--/.row -->
+          </div>
+          <!--/.pricing-wrapper -->
+          <div class="row gx-md-8 gx-xl-12 gy-10">
+            <div class="col-lg-6">
+              <div class="d-flex flex-row">
+                <div>
+                  <span class="icon btn btn-sm btn-circle btn-primary disabled me-5"><i
+                      class="uil uil-comment-exclamation"></i></span>
+                </div>
+                <div>
+                  <h4>Can I cancel my subscription?</h4>
+                  <p class="mb-0">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+                    fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod maecenas.</p>
+                </div>
+              </div>
+            </div>
+            <!-- /column -->
+            <div class="col-lg-6">
+              <div class="d-flex flex-row">
+                <div>
+                  <span class="icon btn btn-sm btn-circle btn-primary disabled me-5"><i
+                      class="uil uil-comment-exclamation"></i></span>
+                </div>
+                <div>
+                  <h4>Which payment methods do you accept?</h4>
+                  <p class="mb-0">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+                    fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod maecenas.</p>
+                </div>
+              </div>
+            </div>
+            <!-- /column -->
+            <div class="col-lg-6">
+              <div class="d-flex flex-row">
+                <div>
+                  <span class="icon btn btn-sm btn-circle btn-primary disabled me-5"><i
+                      class="uil uil-comment-exclamation"></i></span>
+                </div>
+                <div>
+                  <h4>How can I manage my Account?</h4>
+                  <p class="mb-0">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+                    fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod maecenas.</p>
+                </div>
+              </div>
+            </div>
+            <!-- /column -->
+            <div class="col-lg-6">
+              <div class="d-flex flex-row">
+                <div>
+                  <span class="icon btn btn-sm btn-circle btn-primary disabled me-5"><i
+                      class="uil uil-comment-exclamation"></i></span>
+                </div>
+                <div>
+                  <h4>Is my credit card information secure?</h4>
+                  <p class="mb-0">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+                    fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod maecenas.</p>
+                </div>
+              </div>
+            </div>
+            <!-- /column -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /column -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+  </section>
+  <!-- /section -->
+</div>
+<!-- /.content-wrapper -->
+<footer class="bg-navy text-inverse">
+  <div class="container py-13 py-md-15">
+    <div class="d-lg-flex flex-row align-items-lg-center">
+      <h3 class="display-4 mb-6 mb-lg-0 pe-lg-20 pe-xl-22 pe-xxl-25 text-white">Join our community by using our
+        services and grow your business.</h3>
+      <a href="#" class="btn btn-primary rounded-pill mb-0 text-nowrap">Try It For Free</a>
+    </div>
+    <!--/div -->
+    <hr class="mt-11 mb-12" />
+    <div class="row gy-6 gy-lg-0">
+      <div class="col-md-4 col-lg-3">
+        <div class="widget">
+          <img class="mb-4" src="./assets/img/logo-light.png" srcset="./assets/img/logo-light@2x.png 2x" alt="" />
+          <p class="mb-4">© 2021 Sandbox. <br class="d-none d-lg-block" />All rights reserved.</p>
+          <nav class="nav social social-white">
+            <a href="#"><i class="uil uil-twitter"></i></a>
+            <a href="#"><i class="uil uil-facebook-f"></i></a>
+            <a href="#"><i class="uil uil-dribbble"></i></a>
+            <a href="#"><i class="uil uil-instagram"></i></a>
+            <a href="#"><i class="uil uil-youtube"></i></a>
+          </nav>
+          <!-- /.social -->
+        </div>
+        <!-- /.widget -->
+      </div>
+      <!-- /column -->
+      <div class="col-md-4 col-lg-3">
+        <div class="widget">
+          <h4 class="widget-title text-white mb-3">Get in Touch</h4>
+          <address class="pe-xl-15 pe-xxl-17">Moonshine St. 14/05 Light City, London, United Kingdom</address>
+          <a href="mailto:info@email.com">info&commat;email.com</a><br /> +00 (123) 456 78 90
+        </div>
+        <!-- /.widget -->
+      </div>
+      <!-- /column -->
+      <div class="col-md-4 col-lg-3">
+        <div class="widget">
+          <h4 class="widget-title text-white mb-3">Learn More</h4>
+          <ul class="list-unstyled  mb-0">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Our Story</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <!-- /.widget -->
+      </div>
+      <!-- /column -->
+      <div class="col-md-12 col-lg-3">
+        <div class="widget">
+          <h4 class="widget-title text-white mb-3">Our Newsletter</h4>
+          <p class="mb-5">Subscribe to our newsletter to get our news & deals delivered to you.</p>
+          <div class="newsletter-wrapper">
+            <!-- Begin Mailchimp Signup Form -->
+            <div id="mc_embed_signup2">
+              <form
+                action="https://elemisfreebies.us20.list-manage.com/subscribe/post?u=aa4947f70a475ce162057838d&amp;id=b49ef47a9a"
+                method="post" id="mc-embedded-subscribe-form2" name="mc-embedded-subscribe-form"
+                class="validate dark-fields" target="_blank" novalidate>
+                <div id="mc_embed_signup_scroll2">
+                  <div class="mc-field-group input-group form-floating">
+                    <input type="email" value="" name="EMAIL" class="required email form-control"
+                      placeholder="Email Address" id="mce-EMAIL2">
+                    <label for="mce-EMAIL2">Email Address</label>
+                    <input type="submit" value="Join" name="subscribe" id="mc-embedded-subscribe2"
+                      class="btn btn-primary ">
+                  </div>
+                  <div id="mce-responses2" class="clear">
+                    <div class="response" id="mce-error-response2" style="display:none"></div>
+                    <div class="response" id="mce-success-response2" style="display:none"></div>
+                  </div>
+                  <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                  <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+                      name="b_ddc180777a163e0f9f66ee014_4b1bcfa0bc" tabindex="-1" value=""></div>
+                  <div class="clear"></div>
+                </div>
+              </form>
+            </div>
+            <!--End mc_embed_signup-->
+          </div>
+          <!-- /.newsletter-wrapper -->
+        </div>
+        <!-- /.widget -->
+      </div>
+      <!-- /column -->
+    </div>
+    <!--/.row -->
   </div>
-</main>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-
-<router-outlet></router-outlet>
+  <!-- /.container -->
+</footer>
+<div class="progress-wrap">
+  <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+    <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+  </svg>
+</div>
